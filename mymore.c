@@ -24,6 +24,7 @@ int see_more();
 
 int main (int ac, char *av[])
 {
+    int file_counter = 1;
     FILE *fp; /* A file pointer with variable name of fp */
     if( ac == 1 ) {
   	fprintf(stderr, "No filename/s argument given\n");
@@ -38,7 +39,13 @@ int main (int ac, char *av[])
                 fclose(fp);
             }
             else
-                exit(1); // exit, 1 means something wrong
+		    /* Makes another check to see if there is more files */
+		
+		fprintf(stderr, "File %d does not exist\n", file_counter); 
+	    	file_counter++;
+		if ( ac == 1 )
+                exit(1); // exit, 1 means something wrong;
+			 
         }
     return 0; // 0 means every OK
 }
