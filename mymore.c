@@ -84,6 +84,9 @@ int see_more()
             return PAGELEN;
         if(c=='\n')
             return 1;
+	if(c=='h')
+	    return PAGELEN / 2;
     }
+
     return 0;
 }
